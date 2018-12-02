@@ -1,5 +1,9 @@
 # sbo-notes-to-anki.rb: "Safari Books Online to Anki"
 
+(Note this script is a work in progress. I haven't put any effort into
+a command line interface, so you may have to edit the file to work for
+you).
+
 [Safari Books Online](https://www.safaribooksonline.com/) lets you
 highlight book passages and attach notes to those passages.
 
