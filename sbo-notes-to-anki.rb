@@ -22,11 +22,13 @@ _1st_iteration = true # Flag for our first time through the loop
 CSV.foreach(pathfile) do |row|
   # Reorder the list elements; add one new column that links the
   # highlight/note
+  # first repair the note link, which O'Reilly haven't fixed yet
+  fixedlink = row[6].gsub('www.safaribooksonline.com', 'learning.oreilly.com')
   newcsvfile << [
-    row[0],
+    row[0][0..20] + '...', # shorten the all-too-long titles
     row[2],
     # Deal with the header row. Don't wanna hyperlink the column header.
-    _1st_iteration ? "Link" : "=HYPERLINK(\"#{row[6]}\", \"Link\")",
+    _1st_iteration ? "Link to note" : "=HYPERLINK(\"#{fixedlink}\", \"CLICK ME\")",
     row[7],
     row[8]
   ]
